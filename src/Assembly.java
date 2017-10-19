@@ -9,51 +9,52 @@ import java.util.List;
 public class Assembly {
     String[] assembly;
 
-    public Assembly(String[] file){
-        for(int i = 0; i < file.length; i++){
-            assembly = file[i].split("\t",-1);
-            callFunction();
-        }
+    public Assembly(String file){
+        assembly = file.split("\t",-1); //split each label to each array 0 - 5 (first-label,instruction,value1,value2,value3,comment)
+        callFunction();                             //send to callFunction
     }
 
     public void callFunction(){
-        //System.out.println(assembly[1]);
-        if(assembly[0]=="start"){
-            //call function
-            System.out.println("Have Start");
+        if(assembly[0].equals("start")){
+            System.out.println("Have Start"); //Start loop
+            instruction(assembly[1]);
         }else{
-                if(assembly[1].equals("add")){
-                    //call function
-                    System.out.println("do add");
-                }
-                if(assembly[1].equals("nand")){
-                    //call function
-                    System.out.println("do nand");
-                }
-                if(assembly[1].equals("lw")){
-                    //call function
-                    System.out.println("do lw");
-                }
-                if(assembly[1].equals("sw")){
-                    //call function
-                    System.out.println("do sw");
-                }
-                if(assembly[1].equals("beq")){
-                    //call function
-                    System.out.println("do beq");
-                }
-                if(assembly[1].equals("jalr")){
-                    //call function
-                    System.out.println("do jalr");
-                }
-                if(assembly[1].equals("halt")){
-                    //call function
-                    System.out.println("do halt");
-                }
-                if(assembly[1].equals("noop")){
-                    //call function
-                    System.out.println("do noop");
-                }
+            instruction(assembly[1]);
+        }
+    }
+
+    public void instruction(String command){
+        if(command.equals("add")){
+            //call function
+            System.out.println("do add");
+        }
+        if(command.equals("nand")){
+            //call function
+            System.out.println("do nand");
+        }
+        if(command.equals("lw")){
+            //call function
+            System.out.println("do lw");
+        }
+        if(command.equals("sw")){
+            //call function
+            System.out.println("do sw");
+        }
+        if(command.equals("beq")){
+            //call function
+            System.out.println("do beq");
+        }
+        if(command.equals("jalr")){
+            //call function
+            System.out.println("do jalr");
+        }
+        if(command.equals("halt")){
+            //call function
+            System.out.println("do halt");
+        }
+        if(command.equals("noop")){
+            //call function
+            System.out.println("do noop");
         }
     }
 
