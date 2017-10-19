@@ -15,6 +15,11 @@ public class Assembly {
     }
 
     public void callFunction(){
+
+        //For test how it work
+        for (int i = 0 ; i < assembly.length ; i++)System.out.println("test : Assembly No." + i +"\t" + assembly[i]);
+        System.out.println("\n");
+        
         if(assembly[0].equals("start")){
             System.out.println("Have Start"); //Start loop
             instruction(assembly[1]);
