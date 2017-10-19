@@ -1,8 +1,3 @@
-import com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter;
-import sun.invoke.empty.Empty;
-
-import java.util.List;
-
 /**
  * Created by ASUS on 10/19/2017.
  */
@@ -24,37 +19,40 @@ public class Assembly {
     }
 
     public void instruction(String command){
-        if(command.equals("add")){
-            //call function
-            System.out.println("do add");
-        }
-        if(command.equals("nand")){
-            //call function
-            System.out.println("do nand");
-        }
-        if(command.equals("lw")){
-            //call function
-            System.out.println("do lw");
-        }
-        if(command.equals("sw")){
-            //call function
-            System.out.println("do sw");
-        }
-        if(command.equals("beq")){
-            //call function
-            System.out.println("do beq");
-        }
-        if(command.equals("jalr")){
-            //call function
-            System.out.println("do jalr");
-        }
-        if(command.equals("halt")){
-            //call function
-            System.out.println("do halt");
-        }
-        if(command.equals("noop")){
-            //call function
-            System.out.println("do noop");
+        switch (command){
+            case "add":
+                //call function
+                System.out.println("do add");
+                break;
+            case "nand":
+                //call function
+                System.out.println("do nand");
+                break;
+            case "lw" :
+                //call function
+                System.out.println("do lw");
+                break;
+            case "sw" :
+                //call function
+                System.out.println("do sw");
+                break;
+            case "beq" :
+                //call function
+                System.out.println("do beq");
+                break;
+            case "jalr" :
+                //call function
+                System.out.println("do jalr");
+                break;
+            case "halt" :
+                //call function
+                System.out.println("do halt");
+                break;
+            case "noop" :
+                //call function
+                System.out.println("do noop");
+                break;
+            default:break;
         }
     }
 
