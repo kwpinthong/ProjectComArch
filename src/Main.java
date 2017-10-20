@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //----Read file and input each line in array-list----//
-        Scanner assemblyLine = new Scanner(new File("example_testadd.txt"));
+        Scanner assemblyLine = new Scanner(new File("example.txt"));
         List<String> line = new ArrayList<>();
         while (assemblyLine.hasNextLine()){line.add(assemblyLine.nextLine());}
         //---------------------------------------------------//
