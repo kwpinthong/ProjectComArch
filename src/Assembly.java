@@ -32,9 +32,11 @@ public class Assembly {
         switch (command){
             case "add":
                 //call function
+                inst = "000";
                 break;
             case "nand":
                 //call function
+                inst = "001";
                 break;
             case "lw" :
                 //call function
