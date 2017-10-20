@@ -10,6 +10,11 @@ public class Assembly {
     }
 
     public void callFunction(){
+
+        //For test how it work
+        for (int i = 0 ; i < assembly.length ; i++)System.out.println("test : Assembly No." + i +"\t" + assembly[i]);
+
+        
         if(assembly[0].equals("start")){
             System.out.println("Have Start"); //Start loop
             instruction(assembly[1]);
@@ -19,6 +24,10 @@ public class Assembly {
     }
 
     public void instruction(String command){
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
         switch (command){
             case "add":
                 //call function
@@ -53,7 +62,13 @@ public class Assembly {
                 System.out.println("do noop");
                 break;
             default:break;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
         }
+        System.out.println("\n");
+
     }
 
 }
