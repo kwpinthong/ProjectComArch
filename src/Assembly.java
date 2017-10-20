@@ -3,16 +3,39 @@
  */
 public class Assembly {
     String[] assembly;
+    String label;
+    String inst;
+    String field0;
+    String field1;
+    String field2;
+    String comment;
+
+    /*
+    ///////////////////////////////////////////////////////
+    //List value from assembly[] to String variables
+    ///////////////////////////////////////////////////////
+    label   = assembly[0];
+    inst    = assembly[1];
+    field0  = assembly[2];
+    field1  = assembly[3];
+    field2  = assembly[4];
+    comment = assembly[5];
+    */
+
 
     public Assembly(String file){
         assembly = file.split("\t",-1); //split each label to each array 0 - 5 (first-label,instruction,value1,value2,value3,comment)
-        callFunction();                             //send to callFunction
+        for (int i = 0 ; i < assembly.length ; i++)System.out.println("test : Assembly No." + i +"\t" + assembly[i]);
+        instruction(assembly[1]);                           //send to callFunction
     }
 
+
+    //Not use Yet
+    /*
     public void callFunction(){
 
         //For test how it work
-        for (int i = 0 ; i < assembly.length ; i++)System.out.println("test : Assembly No." + i +"\t" + assembly[i]);
+        //for (int i = 0 ; i < assembly.length ; i++)System.out.println("test : Assembly No." + i +"\t" + assembly[i]);
 
         
         if(assembly[0].equals("start")){
@@ -23,43 +46,44 @@ public class Assembly {
         }
     }
 
+<<<<<<< HEAD
     public void instruction(String command){
 <<<<<<< HEAD
 =======
 
 >>>>>>> refs/remotes/origin/master
+=======
+    */
+
+    public void instruction(String command){
+        System.out.println("do : " + command);
+>>>>>>> refs/remotes/origin/Arinchai
         switch (command){
             case "add":
                 //call function
-                System.out.println("do add");
                 break;
             case "nand":
                 //call function
-                System.out.println("do nand");
                 break;
             case "lw" :
                 //call function
-                System.out.println("do lw");
                 break;
             case "sw" :
                 //call function
-                System.out.println("do sw");
                 break;
             case "beq" :
                 //call function
-                System.out.println("do beq");
+                inst = "100";
                 break;
             case "jalr" :
                 //call function
-                System.out.println("do jalr");
                 break;
             case "halt" :
                 //call function
-                System.out.println("do halt");
                 break;
             case "noop" :
                 //call function
-                System.out.println("do noop");
+                inst = "111";
                 break;
             default:break;
 <<<<<<< HEAD
