@@ -1,8 +1,4 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * Created by ASUS on 10/19/2017.
@@ -35,30 +31,33 @@ public class Assembly {
 
     public void SplitForKeep(String file){
         split(file);
-        KeepFirstLabel(assembly);
+        KeepFirstLabel(assembly);//Keep and use it for check
     }
 
     private void KeepFirstLabel(String[] assembly){
-        if(assembly[0].isEmpty()){
-            // if first label is empty don't keep it
-            return;
-        }else{
+        if(assembly[0].isEmpty()){return;}  //if first label is empty don't keep it
+        else{                               //Keep only line which has first label (include start)
             firstLabel.addAll(Arrays.asList(assembly));
         }
     }
 
-    public void printListFirstLabel(){System.out.println(firstLabel);}
+    public void printListFirstLabel(){System.out.println("ArrayList of Firstlabel[for checking]: "+"\n"+firstLabel);}
 
     public void DoProcess(String file){
+        //Program Working here
         split(file);
         setAssembly();
         instruction(assembly[1]);
     }
 
-    public void CheckLabel(String label){
+    public boolean HaveFirstLabel(String label){
+        //Check if the line of each instruction have the labels that must go to
         if(firstLabel.contains(label)){
-            System.out.println("Have "+label);
-        }else{return;}
+            //System.out.println("Have "+label);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void setAssembly(){
@@ -75,11 +74,17 @@ public class Assembly {
         switch (command){
             case "add":
                 //call function
-                CheckLabel(field1);
-                CheckLabel(field2);
+                if(HaveFirstLabel(field2)){
+                    //System.out.println("yes");
+                    int temp = firstLabel.indexOf(field2);
+                    if(firstLabel.get(temp+1).equals(".fill")){
+                        //System.out.println("yes yes");
+                        field2 = fill(temp+2,field2);
+                    }
+                }
                 //System.out.println(field2);
-                //Add add = new Add(field0,field1,field2);
-                //add.doAdd();
+                Add add = new Add(field0,field1,field2);
+                add.doAdd();
                 //inst = "000";
                 break;
             case "nand":
@@ -110,4 +115,11 @@ public class Assembly {
         }
         System.out.println("\n");
     }
+
+    private String fill(int temp,String field){
+        field = firstLabel.get(temp);
+        //System.out.println(field);
+        return field;
+    }
+
 }
