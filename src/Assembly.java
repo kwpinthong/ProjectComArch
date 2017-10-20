@@ -1,8 +1,3 @@
-import com.sun.org.apache.xalan.internal.xsltc.dom.EmptyFilter;
-import sun.invoke.empty.Empty;
-
-import java.util.List;
-
 /**
  * Created by ASUS on 10/19/2017.
  */
@@ -51,10 +46,18 @@ public class Assembly {
         }
     }
 
+<<<<<<< HEAD
+    public void instruction(String command){
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
+=======
     */
 
     public void instruction(String command){
         System.out.println("do : " + command);
+>>>>>>> refs/remotes/origin/Arinchai
         switch (command){
             case "add":
                 //call function
@@ -83,7 +86,10 @@ public class Assembly {
                 inst = "111";
                 break;
             default:break;
+<<<<<<< HEAD
+=======
 
+>>>>>>> refs/remotes/origin/master
         }
         System.out.println("\n");
 
