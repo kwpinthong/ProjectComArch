@@ -50,7 +50,13 @@ public class Assembly {
                 //call function
                 break;
             case "halt" :
-                //call function
+                inst="110"; //sent the halt machine code out
+                //warn simulator that PC is halted
+                try {
+                    throw new HaltException();
+                } catch (HaltException e) {
+                    System.out.println("End of the line"); //Print out warning
+                }
                 break;
             case "noop" :
                 //call function
