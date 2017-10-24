@@ -1,5 +1,6 @@
 import instruction.add;
 import instruction.nand;
+import instruction.noop;
 
 import java.util.*;
 
@@ -83,6 +84,9 @@ public class assembly {
                        break;
                    case "noop" :
                        //call function
+                       noop noop = new noop();
+                       temp = noop.doNoop();
+                       System.out.println(temp);
                        break;
                    default:break;
                }

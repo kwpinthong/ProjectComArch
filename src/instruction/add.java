@@ -5,10 +5,12 @@ package instruction;
  */
 public class add {
     static String op = "000" ;
-    String rs;
-    String rt;
-    String rd;
+    register rs;
+    register rt;
+    register rd;
+
     public add(String field0,String field1,String field2){
+<<<<<<< HEAD
         this.rs = dec2bin(Integer.valueOf(field0));
         this.rt = dec2bin(Integer.valueOf(field1));
         this.rd = dec2bin(Integer.valueOf(field2));
@@ -36,8 +38,15 @@ public class add {
                 return "Wrong number of rs or rt";
         }
     }
+=======
+        this.rs = new register(field0);
+        this.rt = new register(field1);
+        this.rd = new register(field2);
+    }
+
+>>>>>>> refs/remotes/origin/master
 
     public String doAdd(){
-        return String.valueOf(Integer.parseInt(op+rs+rt+"0000000000000"+rd,2));
+        return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000"+rd.CheckReg(),2));
     }
 }
