@@ -27,6 +27,6 @@ public class main {
         //----------------------------------------------------/
         assembly assembly = new assembly(data,temp.length,nCols);
         assembly.working();
-        assembly.print();
+        //assembly.print();
     }
 }

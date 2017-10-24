@@ -5,15 +5,15 @@ package instruction;
  */
 public class nand {
     static String op = "001" ;
-    String rs;
-    String rt;
-    String rd;
+    register rs;
+    register rt;
+    register rd;
     public nand(String field0,String field1,String field2){
-        this.rs = field0;
-        this.rt = field1;
-        this.rd = field2;
+        this.rs = new register(field0);
+        this.rt = new register(field1);
+        this.rd = new register(field2);
     }
     public String doNand(){
-        return String.valueOf(Integer.parseInt(op+rs+rt+"0000000000000"+rd,2));
+        return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000"+rd.CheckReg(),2));
     }
 }
