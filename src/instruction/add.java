@@ -9,12 +9,12 @@ public class add {
     String rt;
     String rd;
     public add(String field0,String field1,String field2){
-        this.rs = field0;
-        this.rt = field1;
-        this.rd = field2;
+        this.rs = dec2bin(Integer.valueOf(field0));
+        this.rt = dec2bin(Integer.valueOf(field1));
+        this.rd = dec2bin(Integer.valueOf(field2));
     }
 
-    /*private static String dec2bin(int dec){
+    private static String dec2bin(int dec){
         switch(dec) {
             case 0:
                 return "000";
@@ -35,7 +35,7 @@ public class add {
             default:
                 return "Wrong number of rs or rt";
         }
-    }*/
+    }
 
     public String doAdd(){
         return String.valueOf(Integer.parseInt(op+rs+rt+"0000000000000"+rd,2));
