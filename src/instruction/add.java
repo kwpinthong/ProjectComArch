@@ -8,6 +8,7 @@ public class add {
     register rs;
     register rt;
     register rd;
+
     public add(String field0,String field1,String field2){
         this.rs = new register(field0);
         this.rt = new register(field1);
