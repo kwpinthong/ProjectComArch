@@ -25,8 +25,13 @@ public class main {
             }
         }
         //----------------------------------------------------/
+        //-----------Create Output file for simulator---------//
+        File file = new File("output.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        PrintStream printStream = new PrintStream(fileOutputStream);
+        System.setOut(printStream);
+        //---------------------------------------------------//
         assembly assembly = new assembly(data,temp.length,nCols);
         assembly.working();
-        //assembly.print();
     }
 }
