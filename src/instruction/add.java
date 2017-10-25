@@ -15,7 +15,6 @@ public class add {
         this.rd = new register(field2);
     }
 
-
     public String doAdd(){
         return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000"+rd.CheckReg(),2));
     }

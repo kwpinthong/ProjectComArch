@@ -2,6 +2,7 @@ import instruction.add;
 import instruction.nand;
 import instruction.noop;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -37,6 +38,7 @@ public class assembly {
    }
 
     public void working(){
+
        for(int i = 0; i < nRows; i++){
            //----Set all value----//
            this.label = data[i][0];
