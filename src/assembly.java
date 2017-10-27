@@ -72,7 +72,7 @@ public class assembly {
                        //call function
                        break;
                    case "beq" :
-                       beq beq = new beq(field0,field1,field2,label);
+                       beq beq = new beq(field0,field1,field2,label,i);
                        System.out.println(beq.doBeq());
                        break;
                    case "jalr" :
