@@ -5,39 +5,18 @@ package instruction;
  */
 public class add {
     static String op = "000" ;
-    String rs;
-    String rt;
-    String rd;
+    register rs;
+    register rt;
+    register rd;
+
     public add(String field0,String field1,String field2){
-        this.rs = field0;
-        this.rt = field1;
-        this.rd = field2;
+        this.rs = new register(field0);
+        this.rt = new register(field1);
+        this.rd = new register(field2);
     }
 
-    /*private static String dec2bin(int dec){
-        switch(dec) {
-            case 0:
-                return "000";
-            case 1:
-                return "001";
-            case 2:
-                return "010";
-            case 3:
-                return "011";
-            case 4:
-                return "100";
-            case 5:
-                return "101";
-            case 6:
-                return "110";
-            case 7:
-                return "111";
-            default:
-                return "Wrong number of rs or rt";
-        }
-    }*/
 
     public String doAdd(){
-        return String.valueOf(Integer.parseInt(op+rs+rt+"0000000000000"+rd,2));
+        return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000"+rd.CheckReg(),2));
     }
 }

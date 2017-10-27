@@ -1,5 +1,7 @@
 import instruction.add;
+import instruction.beq;
 import instruction.nand;
+import instruction.noop;
 
 import java.util.*;
 
@@ -18,7 +20,7 @@ public class assembly {
     field2  = assembly[4];
     comment = assembly[5];
     */
-    String label;
+    static ArrayList<String > label = new ArrayList<>();
     String inst;
     String field0;
     String field1;
@@ -38,7 +40,7 @@ public class assembly {
     public void working(){
        for(int i = 0; i < nRows; i++){
            //----Set all value----//
-           this.label = data[i][0];
+           label.add(data[i][0]);
            this.inst = data[i][1];
            this.field0 = data[i][2];
            this.field1 = data[i][3];
@@ -46,10 +48,7 @@ public class assembly {
            this.comment = data[i][5];
            //---------------------//
             String temp = "";
-           /* Test string-bin to dec
-           String test;
-           test = String.valueOf(Integer.parseInt("010"+"000"+"010"+"011"+"100"+"0000000000000",2));
-           System.out.println(test);*/
+
 
            if(inst.equals(".fill")){
 
@@ -73,7 +72,8 @@ public class assembly {
                        //call function
                        break;
                    case "beq" :
-                       //call function
+                       beq beq = new beq(field0,field1,field2,label,i);
+                       System.out.println(beq.doBeq());
                        break;
                    case "jalr" :
                        //call function
@@ -83,6 +83,9 @@ public class assembly {
                        break;
                    case "noop" :
                        //call function
+                       noop noop = new noop();
+                       temp = noop.doNoop();
+                       System.out.println(temp);
                        break;
                    default:break;
                }
