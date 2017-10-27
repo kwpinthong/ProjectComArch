@@ -1,7 +1,4 @@
-import instruction.add;
-import instruction.beq;
-import instruction.nand;
-import instruction.noop;
+import instruction.*;
 
 import java.util.*;
 
@@ -80,6 +77,9 @@ public class assembly {
                        break;
                    case "halt" :
                        //call function
+                       halt halt = new halt();
+                       temp=halt.dohalt();
+                       System.out.println(temp);
                        break;
                    case "noop" :
                        //call function
