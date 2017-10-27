@@ -30,11 +30,11 @@ public class beq {
         {
             for ( int i = 0;i<this.label.size(); i ++)
             {
-                if(offField.equals(label.get(i)))
-                    tmp = Short.parseShort(label.get(i));
-                tmp -= PC -1;
-                return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+toBinary(tmp),2));
-                //else return "test";
+                if(offField.equals(label.get(i))) {
+                    tmp = (short)i;
+                    tmp -= PC + 1;
+                    return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp), 2));
+                }
             }
             return offField;
         }
