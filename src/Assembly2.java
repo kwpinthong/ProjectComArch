@@ -44,7 +44,7 @@ public class Assembly2 {
        }
    }
 
-    public void working(){
+    public void working()throws Exception{
        for(int i = 0; i < nRows; i++){
            this.inst = data[i][1];
            this.field0 = data[i][2];
@@ -68,12 +68,13 @@ public class Assembly2 {
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       //call function
-                       lw lw = new lw(field0, field1, field2, label, data);
-                       lw.doLw();
+                       loadStore lw = new loadStore(field0, field1, field2, label, data);
+                       System.out.println(lw.doLw());
                        break;
                    case "sw" :
-                       //call function
+                       //Do anything same lw in assembler
+                       loadStore sw = new loadStore(field0, field1, field2, label, data);
+                       System.out.println(sw.doLw());
                        break;
                    case "beq" :
                        beq beq = new beq(field0,field1,field2,label,i);
