@@ -26,7 +26,10 @@ public class main {
         }
         //----------------------------------------------------/
         assembly assembly = new assembly(data,temp.length,nCols);
-        assembly.working();
+        Assembly2 assembly2 = new Assembly2(data,temp.length,nCols);
+        assembly2.init_lable();
+        assembly2.working();
+        //assembly.working();
         //assembly.print();
     }
 }
