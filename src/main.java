@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         //----Read file and input each line in array-list----//
         Scanner assemblyLine = new Scanner(new File("input.txt"));
         List<String> line = new ArrayList<>();

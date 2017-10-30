@@ -1,4 +1,6 @@
 package instruction;
+import com.sun.deploy.util.StringUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,26 +21,40 @@ public class loadStore{
         this.data = data;
     }
 
-    public String doLw() throws Exception{
+    public String doLw() throws IOException{
         if(offField.matches("(.*)[a-z](.*)")){
             for ( int i = 0;i<this.label.size(); i ++){
                 if(offField.equals(label.get(i))) {
                     tmp = (short)i;
-                    Integer temOffsetInt = Integer.parseInt(data[i][2]);
-                    if(checkOffsetSize(temOffsetInt)){
+                    if(isNumeric(data[i][2])) {
+                        Integer temOffsetInt = Integer.parseInt(data[i][2]);
+                        if(checkOffsetSize(temOffsetInt)){
+                            return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
+                        }else{
+                            throw new IOException("Offset Size is Wrong");
+                        }
+                    }else {
                         return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
-                    }else{
-                        throw new Exception("Offset Size is Wrong");
                     }
+
                 }
             }
-            throw new Exception("Undefine Lable");
-
         }else{
             // when offsetField is Numberic
             String offFieldBinary = String.valueOf(toBinary(Integer.parseInt(offField)));
             return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + offFieldBinary,2));
         }
+        return null;
+    }
+
+    public static boolean isNumeric(String str){
+        try{
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe){
+            return false;
+        }
+        return true;
     }
 
     public static String toBinary(int int1){

@@ -3,9 +3,11 @@
  */
 
 import instruction.*;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class assembly {
+public class assembly{
     /*
 
     ใช้ทดลอง วนอ่านค่า label ทั้งหมดก่อน
@@ -44,7 +46,7 @@ public class assembly {
        }
    }
 
-    public void working()throws Exception{
+    public void working()throws IOException{
        for(int i = 0; i < nRows; i++){
            this.inst = data[i][1];
            try{
