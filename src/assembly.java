@@ -1,10 +1,10 @@
-import instruction.*;
-
-import java.util.ArrayList;
-
 /**
  * Created by ASUS on 10/19/2017.
  */
+
+import instruction.*;
+import java.util.ArrayList;
+
 public class assembly {
     /*
 
@@ -100,6 +100,9 @@ public class assembly {
                        break;
                    case "jalr" :
                        //call function
+                       jalr jalr = new jalr(field0,field1);
+                       temp = jalr.toJalr();
+                       System.out.println(temp);
                        break;
                    case "halt" :
                        //call function
