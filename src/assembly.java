@@ -1,12 +1,14 @@
 import instruction.*;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by ASUS on 10/19/2017.
  */
 public class assembly {
     /*
+
+    ใช้ทดลอง วนอ่านค่า label ทั้งหมดก่อน
     ///////////////////////////////////////////////////////
     //List value from assembly[][] to String variables
     ///////////////////////////////////////////////////////
@@ -34,21 +36,42 @@ public class assembly {
        this.nCols = nCols;
    }
 
-    public void working(){
-       for(int i = 0; i < nRows; i++){
+   public void initLable(){
+       for(int i = 0; i < nRows; i++) {
            //----Set all value----//
            label.add(data[i][0]);
-           this.inst = data[i][1];
-           this.field0 = data[i][2];
-           this.field1 = data[i][3];
-           this.field2 = data[i][4];
-           this.comment = data[i][5];
            //---------------------//
-            String temp = "";
+       }
+   }
 
-
+    public void working()throws Exception{
+       for(int i = 0; i < nRows; i++){
+           this.inst = data[i][1];
+           try{
+               this.field0 = data[i][2];
+               this.field1 = data[i][3];
+               this.field2 = data[i][4];
+               this.comment = data[i][5];
+           }catch (Exception e){
+               //This case for non-fill tab all of field in file.txt//
+               if(inst.equals(".fill")){
+                   this.field1 = "";
+                   this.field2 = "";
+                   this.comment = "";
+               }else{
+                   this.field0 = "";
+                   this.field1 = "";
+                   this.field2 = "";
+                   this.comment = "";
+               }
+           }
+          String temp;
            if(inst.equals(".fill")){
-
+               if(isNumber(field0)){
+                   System.out.println(field0);
+               }else{
+                   System.out.println(label.indexOf(field0));
+               }
            }else{
                switch(inst){
                    case "add":
@@ -63,10 +86,13 @@ public class assembly {
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       //call function
+                       loadStore lw = new loadStore(field0, field1, field2, label, data);
+                       System.out.println(lw.doLw());
                        break;
                    case "sw" :
-                       //call function
+                       //Do anything same lw in assembler
+                       loadStore sw = new loadStore(field0, field1, field2, label, data);
+                       System.out.println(sw.doLw());
                        break;
                    case "beq" :
                        beq beq = new beq(field0,field1,field2,label,i);
@@ -92,12 +118,12 @@ public class assembly {
            }
        }
     }
-
-    public void print(){
-        for(int i = 0; i < nRows; i++){
-            for(int j = 0; j < nCols; j++){
-                System.out.println(data[i][j]);
-            }
+    private boolean isNumber(String field0){
+        try{
+            int temp = Integer.parseInt(field0);
+        }catch (NumberFormatException nfe){
+            return false;
         }
+        return true;
     }
 }
