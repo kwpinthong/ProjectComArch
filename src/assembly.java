@@ -88,13 +88,13 @@ public class assembly{
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       loadStore lw = new loadStore(field0, field1, field2, label, data);
+                       lw lw = new lw(field0, field1, field2, label, data);
                        System.out.println(lw.doLw());
                        break;
                    case "sw" :
                        //Do anything same lw in assembler
-                       loadStore sw = new loadStore(field0, field1, field2, label, data);
-                       System.out.println(sw.doLw());
+                       sw sw = new sw(field0, field1, field2, label, data);
+                       System.out.println(sw.doSw());
                        break;
                    case "beq" :
                        beq beq = new beq(field0,field1,field2,label,i);

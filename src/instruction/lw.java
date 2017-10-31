@@ -1,10 +1,9 @@
 package instruction;
-import com.sun.deploy.util.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class loadStore{
+public class lw {
     static String op = "010";
     register rs;
     register rt;
@@ -13,7 +12,7 @@ public class loadStore{
     ArrayList<String> label;
     String [][] data;
 
-    public loadStore(String field0, String field1, String field2, ArrayList<String> label,String[][] data){
+    public lw(String field0, String field1, String field2, ArrayList<String> label, String[][] data){
         this.rs = new register(field0);
         this.rt = new register(field1);
         offField = field2;
