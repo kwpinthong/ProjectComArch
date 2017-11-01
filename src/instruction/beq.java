@@ -40,6 +40,7 @@ public class beq {
         }
         else return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+toBinary(Integer.parseInt(offField)),2));
     }
+
     public static String toBinary(int int1){
         int count;
         String tmp = Integer.toBinaryString(int1);
@@ -61,8 +62,6 @@ public class beq {
         }
         return tmp;
     }
-
-
 
 }
 

@@ -9,9 +9,16 @@ import java.util.Scanner;
 
 public class main {
 
+    //public static File file = new File("example.txt");
+    //public static File file = new File("input.txt");
+    //public static File file = new File("mult.txt");
+    public static File file = new File("comb.txt");
+    //public static File file = new File("comb2.txt");
+    //public static File file = new File("sum.txt");
+
     public static void main(String[] args) throws IOException {
         //----Read file and input each line in array-list----//
-        Scanner assemblyLine = new Scanner(new File("input.txt"));
+        Scanner assemblyLine = new Scanner(file);
         List<String> line = new ArrayList<>();
         while (assemblyLine.hasNextLine()){line.add(assemblyLine.nextLine());}
         String[] temp = line.toArray(new String[0]); //Add every lines form array-list to array
