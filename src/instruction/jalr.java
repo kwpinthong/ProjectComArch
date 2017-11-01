@@ -13,7 +13,7 @@ public class jalr {
         this.rt = new register(field1);
     }
     public String toJalr(){
-        return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000000000",2));
+        return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+"0000000000000000",2));
     }
 }
 
