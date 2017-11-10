@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class main {
 
-    //public static File file = new File("example.txt");
+    public static File file = new File("example.txt");
     //public static File file = new File("input.txt");
     //public static File file = new File("mult.txt");
-    public static File file = new File("comb.txt");
+    //public static File file = new File("comb.txt");
     //public static File file = new File("comb2.txt");
     //public static File file = new File("sum.txt");
 
@@ -28,7 +28,7 @@ public class main {
         String[][] data = new String[temp.length][nCols];
         for(int i = 0; i < temp.length ; i++){
             for(int j = 0; j < nCols ; j++){
-                data[i] = temp[i].split("\t",-1);
+                data[i] = temp[i].split("\\s+");
             }
         }
         //----------------------------------------------------/

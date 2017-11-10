@@ -55,19 +55,10 @@ public class assembly{
                this.field2 = data[i][4];
                this.comment = data[i][5];
            }catch (Exception e){
-               if(inst.equals(".fill")){
-                   this.field1 = "";
-                   this.field2 = "";
-                   this.comment = "";
-               }else if(inst.equals("halt") || inst.equals("noop")){
+                if(inst.equals("halt") || inst.equals("noop")){
                    this.field0 = "";
                    this.field1 = "";
                    this.field2 = "";
-                   this.comment = "";
-               }else if(inst.equals("jalr")){
-                   this.field2 = "";
-                   this.comment = "";
-               }else if(data[i][2]!=null && data[i][3]!=null && data[i][4]!=null){
                    this.comment = "";
                }
            }
