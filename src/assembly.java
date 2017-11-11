@@ -41,9 +41,19 @@ public class assembly{
    public void initLable(){
        for(int i = 0; i < nRows; i++) {
            //----Set all value----//
-            label.add(data[i][0]);
-           //---------------------//
+           if(data[i][0].isEmpty()){
+               //add label
+           }else{
+               if(label.contains(data[i][0])){
+                   System.out.println("Error: Find Duplicate Label");
+                   System.exit(1);
+               }else{
+                   //add label
+               }
+           }
+           label.add(data[i][0]);
        }
+            //---------------------//
    }
 
     public void working()throws IOException{
@@ -70,7 +80,7 @@ public class assembly{
                    System.out.println(label.indexOf(field0));
                }
            }else{
-               //checkLabel(inst,i);
+               if(!field2.isEmpty())checkLabel();
                switch(inst){
                    case "add":
                        add add = new add(field0,field1,field2);
@@ -138,7 +148,7 @@ public class assembly{
         return true;
     }
 
-    private void checkLabel(String inst,int i){
+    private void checkLabel(){
         //Check Label at field2 and check if label is undefine
         if(isNumber(field2)){
             return;//Go to switch cases
@@ -146,7 +156,7 @@ public class assembly{
             if(label.contains(field2)){
                 return;//Go to switch cases
             }else{
-                System.out.println("Error: Undefine Label at line "+(i+1));
+                System.out.println("Error: Undefine Label");
                 System.exit(1);
             }
         }
