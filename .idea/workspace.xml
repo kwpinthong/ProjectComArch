@@ -4,10 +4,8 @@
     <list default="true" id="fbc228f4-2036-4536-ace9-dce5fa50ef91" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ProjectComArch/Assembly.class" afterPath="$PROJECT_DIR$/out/production/ProjectComArch/Assembly.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.txt" afterPath="$PROJECT_DIR$/example.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assembly.java" afterPath="$PROJECT_DIR$/src/assembly.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/instruction/beq.java" afterPath="$PROJECT_DIR$/src/instruction/beq.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/instruction/lw.java" afterPath="$PROJECT_DIR$/src/instruction/lw.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/instruction/sw.java" afterPath="$PROJECT_DIR$/src/instruction/sw.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +24,7 @@
       <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
+            <state relative-caret-position="-119">
               <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
@@ -36,18 +34,8 @@
       <file leaf-file-name="assembly.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/assembly.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1066">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sw.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/instruction/sw.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+            <state relative-caret-position="1598">
+              <caret line="99" column="62" lean-forward="false" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -56,8 +44,8 @@
       <file leaf-file-name="lw.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/instruction/lw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+            <state relative-caret-position="651">
+              <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -526,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510290034473</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="all errors">
+      <created>1510412888573</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1510412888574</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -577,7 +572,8 @@
     <MESSAGE value="Fix LoadStroe throw Exception error" />
     <MESSAGE value="Fix jalr" />
     <MESSAGE value="Fix all case input file text" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix all case input file text" />
+    <MESSAGE value="all errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="all errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -918,22 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/instruction/lw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/instruction/sw.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -942,10 +922,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/instruction/lw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/assembly.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1066">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="1598">
+          <caret line="99" column="62" lean-forward="false" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
           <folding />
         </state>
       </provider>

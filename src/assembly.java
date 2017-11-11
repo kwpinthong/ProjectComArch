@@ -87,7 +87,7 @@ public class assembly{
                            lw lw = new lw(field0, field1, field2, label, data);
                            System.out.println(lw.doLw());
                        }catch (IOException e){
-                           e.getMessage();
+                           System.out.println(e.getMessage());
                            System.exit(1);
                        }
                        break;
@@ -97,7 +97,7 @@ public class assembly{
                            sw sw = new sw(field0, field1, field2, label, data);
                            System.out.println(sw.doSw());
                        }catch (IOException e){
-                           e.getMessage();
+                           System.out.println(e.getMessage());
                            System.exit(1);
                        }
                        break;
