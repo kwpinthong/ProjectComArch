@@ -12,7 +12,7 @@ public class main {
     public static File file = new File("example.txt");
     //public static File file = new File("input.txt");
     //public static File file = new File("mult.txt");
-    //public static File file = new File("comb.txt");
+    //public static File file = new File("comb.txt"); //beq is not done for
     //public static File file = new File("comb2.txt");
     //public static File file = new File("sum.txt");
 

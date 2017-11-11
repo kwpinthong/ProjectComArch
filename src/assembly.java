@@ -41,7 +41,7 @@ public class assembly{
    public void initLable(){
        for(int i = 0; i < nRows; i++) {
            //----Set all value----//
-           label.add(data[i][0]);
+            label.add(data[i][0]);
            //---------------------//
        }
    }
@@ -70,7 +70,7 @@ public class assembly{
                    System.out.println(label.indexOf(field0));
                }
            }else{
-               checkLabel(inst,i);
+               //checkLabel(inst,i);
                switch(inst){
                    case "add":
                        add add = new add(field0,field1,field2);
@@ -131,7 +131,7 @@ public class assembly{
 
     private boolean isNumber(String field0){
         try{
-            int temp = Integer.parseInt(field0);
+            double temp = Integer.parseInt(field0);
         }catch (NumberFormatException nfe){
             return false;
         }
