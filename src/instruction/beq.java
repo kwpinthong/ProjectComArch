@@ -19,8 +19,6 @@ public class beq {
         offField = field2;
         this.PC = PC;
         this.label = label;
-
-
     }
 
     public String doBeq ()

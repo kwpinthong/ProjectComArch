@@ -70,6 +70,7 @@ public class assembly{
                    System.out.println(label.indexOf(field0));
                }
            }else{
+               checkLabel(inst,i);
                switch(inst){
                    case "add":
                        add add = new add(field0,field1,field2);
@@ -82,13 +83,23 @@ public class assembly{
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       lw lw = new lw(field0, field1, field2, label, data);
-                       System.out.println(lw.doLw());
+                       try{
+                           lw lw = new lw(field0, field1, field2, label, data);
+                           System.out.println(lw.doLw());
+                       }catch (IOException e){
+                           e.getMessage();
+                           System.exit(1);
+                       }
                        break;
                    case "sw" :
                        //Do anything same lw in assembler
-                       sw sw = new sw(field0, field1, field2, label, data);
-                       System.out.println(sw.doSw());
+                       try {
+                           sw sw = new sw(field0, field1, field2, label, data);
+                           System.out.println(sw.doSw());
+                       }catch (IOException e){
+                           e.getMessage();
+                           System.exit(1);
+                       }
                        break;
                    case "beq" :
                        beq beq = new beq(field0,field1,field2,label,i);
@@ -109,10 +120,13 @@ public class assembly{
                        temp = noop.doNoop();
                        System.out.println(temp);
                        break;
-                   default:break;
+                   default:
+                       System.out.println("Error: Wrong OPCODE at line "+(i+1));
+                       System.exit(1);
                }
            }
        }
+       System.exit(0);
     }
 
     private boolean isNumber(String field0){
@@ -123,4 +137,19 @@ public class assembly{
         }
         return true;
     }
+
+    private void checkLabel(String inst,int i){
+        //Check Label at field2 and check if label is undefine
+        if(isNumber(field2)){
+            return;//Go to switch cases
+        }else{
+            if(label.contains(field2)){
+                return;//Go to switch cases
+            }else{
+                System.out.println("Error: Undefine Label at line "+(i+1));
+                System.exit(1);
+            }
+        }
+    }
+
 }

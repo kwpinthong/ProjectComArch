@@ -31,7 +31,7 @@ public class sw{
                         if(checkOffsetSize(temOffsetInt)){
                             return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
                         }else{
-                            throw new IOException("Offset Size is Wrong");
+                            throw new IOException("Error: Offset Size is Wrong");
                         }
                     }else {
                         return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
