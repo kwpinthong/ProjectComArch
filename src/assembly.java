@@ -57,10 +57,6 @@ public class assembly{
    }
 
     public void working()throws IOException{
-       TwoCompement twc = new TwoCompement("5");
-       twc.show();
-
-
        for(int i = 0; i < nRows; i++){
            this.inst = data[i][1];
            try{
