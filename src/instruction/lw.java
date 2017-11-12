@@ -70,6 +70,7 @@ public class lw {
     public static String toBinary(short int1){
         short count ;
         String tmp = Integer.toBinaryString(0xFFFF & int1);
+
         count = (short)tmp.length();
         while (count < 16) {
             tmp = "0" + tmp;

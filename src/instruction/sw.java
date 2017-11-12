@@ -4,6 +4,8 @@ package instruction;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.lang.System.exit;
+
 public class sw{
     static String op = "011";
     register rs;
