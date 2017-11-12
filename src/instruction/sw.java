@@ -24,11 +24,18 @@ public class sw{
     }
 
     public String doSw() throws IOException{
+        // ตรวจสอบว่า offset feild เป็นตัวเลข หรือ lable
         if(offField.matches("(.*)[a-z](.*)")){
+            // กรณีที่ เป็น label
+            // วนหา address ของ offset field
+            int lableCouter = 0;
             for ( int i = 0;i<this.label.size(); i ++){
+                // ถ้ามีตรงกันในลิส์
                 if(offField.equals(label.get(i))) {
                     tmp = (short)i;
+                    //ตรวจว่ามันเป็นตัวเลขหรือไม่
                     if(isNumeric(data[i][2])) {
+                        // ถ้าตามเลเบิลไปเป็นตัวเลข ให้ทำการแปลงเป็นฐานสอง
                         Integer temOffsetInt = Integer.parseInt(data[i][2]);
                         if(checkOffsetSize(temOffsetInt)){
                             return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
@@ -41,13 +48,24 @@ public class sw{
 
                 }
             }
+            if(lableCouter >= this.label.size()){
+                // ถ้าไม่เจอ label แสดงว่า ลาเบลผิด หรือ ไม่มีจริง แสดง เออเรอ
+                throw new IOException("Error: Label is Undefinded");
+            }
         }else{
             // when offsetField is Numberic
-            String offFieldBinary = String.valueOf(toBinary(Integer.parseInt(offField)));
-            return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + offFieldBinary,2));
+            int intOffsetField = Integer.parseInt(offField);
+            String offFieldBinary = String.valueOf(toBinary(intOffsetField));
+            if(checkOffsetSize(intOffsetField)){
+                return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + offFieldBinary,2));
+            }else{
+                throw new IOException("Error: Offset Size is Wrong");
+            }
+
         }
         return null;
     }
+
 
     public static boolean isNumeric(String str){
         try{
@@ -73,6 +91,7 @@ public class sw{
     public static String toBinary(short int1){
         short count ;
         String tmp = Integer.toBinaryString(0xFFFF & int1);
+
         count = (short)tmp.length();
         while (count < 16) {
             tmp = "0" + tmp;
