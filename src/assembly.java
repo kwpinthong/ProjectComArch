@@ -41,9 +41,19 @@ public class assembly{
    public void initLable(){
        for(int i = 0; i < nRows; i++) {
            //----Set all value----//
+           if(data[i][0].isEmpty()){
+               //add label
+           }else{
+               if(label.contains(data[i][0])){
+                   System.out.println("Error: Find Duplicate Label");
+                   System.exit(1);
+               }else{
+                   //add label
+               }
+           }
            label.add(data[i][0]);
-           //---------------------//
        }
+            //---------------------//
    }
 
     public void working()throws IOException{
@@ -74,6 +84,7 @@ public class assembly{
                    System.out.println(label.indexOf(field0));
                }
            }else{
+               if(!field2.isEmpty())checkLabel();
                switch(inst){
                    case "add":
                        add add = new add(field0,field1,field2);
@@ -86,13 +97,23 @@ public class assembly{
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       lw lw = new lw(field0, field1, field2, label, data);
-                       System.out.println(lw.doLw());
+                       try{
+                           lw lw = new lw(field0, field1, field2, label, data);
+                           System.out.println(lw.doLw());
+                       }catch (IOException e){
+                           System.out.println(e.getMessage());
+                           System.exit(1);
+                       }
                        break;
                    case "sw" :
                        //Do anything same lw in assembler
-                       sw sw = new sw(field0, field1, field2, label, data);
-                       System.out.println(sw.doSw());
+                       try {
+                           sw sw = new sw(field0, field1, field2, label, data);
+                           System.out.println(sw.doSw());
+                       }catch (IOException e){
+                           System.out.println(e.getMessage());
+                           System.exit(1);
+                       }
                        break;
                    case "beq" :
                        beq beq = new beq(field0,field1,field2,label,i);
@@ -113,18 +134,36 @@ public class assembly{
                        temp = noop.doNoop();
                        System.out.println(temp);
                        break;
-                   default:break;
+                   default:
+                       System.out.println("Error: Wrong OPCODE at line "+(i+1));
+                       System.exit(1);
                }
            }
        }
+       System.exit(0);
     }
 
     private boolean isNumber(String field0){
         try{
-            int temp = Integer.parseInt(field0);
+            double temp = Integer.parseInt(field0);
         }catch (NumberFormatException nfe){
             return false;
         }
         return true;
     }
+
+    private void checkLabel(){
+        //Check Label at field2 and check if label is undefine
+        if(isNumber(field2)){
+            return;//Go to switch cases
+        }else{
+            if(label.contains(field2)){
+                return;//Go to switch cases
+            }else{
+                System.out.println("Error: Undefine Label");
+                System.exit(1);
+            }
+        }
+    }
+
 }
