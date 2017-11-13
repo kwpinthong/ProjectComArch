@@ -141,7 +141,7 @@ public class assembly{
 
     private boolean isNumber(String field0){
         try{
-            double temp = Integer.parseInt(field0);
+            int temp = Integer.parseInt(field0);
         }catch (NumberFormatException nfe){
             return false;
         }

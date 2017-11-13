@@ -42,7 +42,6 @@ public class lw {
                     }else {
                         return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp),2));
                     }
-
                 }
             }
             if(lableCouter >= this.label.size()){

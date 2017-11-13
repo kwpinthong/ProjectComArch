@@ -23,14 +23,20 @@ public class beq {
 
     public String doBeq ()
     {
+        if(isNumeric(offField)){
 
-        if(offField.matches("(.*)[a-z](.*)"))
-        {
-            for ( int i = 0;i<this.label.size(); i ++)
-            {
+        }else{
+            if(label.contains(offField)){
+
+            }else{
+
+            }
+        }
+        if(offField.matches("(.*)[a-z](.*)")) {
+            for ( int i = 0;i<this.label.size(); i ++) {
                 if(offField.equals(label.get(i))) {
                     tmp = (short)i;
-                    tmp -= PC + 1;
+                    tmp -= PC - 1;
                     return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp), 2));
                 }
             }
@@ -59,6 +65,16 @@ public class beq {
             count++;
         }
         return tmp;
+    }
+
+    public static boolean isNumeric(String str){
+        try{
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe){
+            return false;
+        }
+        return true;
     }
 
 }
