@@ -21,7 +21,8 @@ public class assembly{
     field2  = assembly[4];
     comment = assembly[5];
     */
-    static ArrayList<String > label = new ArrayList<>();
+    static ArrayList<String> label = new ArrayList<>();
+    //static ArrayList<String> keepLine = new ArrayList<>();
     String inst;
     String field0;
     String field1;
@@ -41,19 +42,8 @@ public class assembly{
    public void initLable(){
        for(int i = 0; i < nRows; i++) {
            //----Set all value----//
-           if(data[i][0].isEmpty()){
-               //add label
-           }else{
-               if(label.contains(data[i][0])){
-                   System.out.println("Error: Find Duplicate Label");
-                   System.exit(1);
-               }else{
-                   //add label
-               }
-           }
            label.add(data[i][0]);
-       }
-            //---------------------//
+       }   //---------------------//
    }
 
     public void working()throws IOException{

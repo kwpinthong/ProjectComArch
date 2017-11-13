@@ -21,28 +21,25 @@ public class beq {
         this.label = label;
     }
 
-    public String doBeq ()
-    {
-        if(isNumeric(offField)){
-
-        }else{
-            if(label.contains(offField)){
-
-            }else{
-
-            }
-        }
-        if(offField.matches("(.*)[a-z](.*)")) {
+    public String doBeq () {
+        if(label.contains(offField)) { //offField.matches("(.*)[a-z][A-Z](.*)")
             for ( int i = 0;i<this.label.size(); i ++) {
                 if(offField.equals(label.get(i))) {
                     tmp = (short)i;
-                    tmp -= PC - 1;
+                    tmp -= PC + 1;
                     return String.valueOf(Integer.parseInt("0000000" + op + rs.CheckReg() + rt.CheckReg() + toBinary(tmp), 2));
                 }
             }
             return offField;
+        }else{
+            if(isNumber(offField)){
+
+            }else{
+                System.out.println("Error: Undefine Label");
+                System.exit(1);
+            }
+            return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+toBinary(Integer.parseInt(offField)),2));
         }
-        else return String.valueOf(Integer.parseInt("0000000"+op+rs.CheckReg()+rt.CheckReg()+toBinary(Integer.parseInt(offField)),2));
     }
 
     public static String toBinary(int int1){
@@ -67,15 +64,13 @@ public class beq {
         return tmp;
     }
 
-    public static boolean isNumeric(String str){
+    private boolean isNumber(String field0){
         try{
-            double d = Double.parseDouble(str);
-        }
-        catch(NumberFormatException nfe){
+            int temp = Integer.parseInt(field0);
+        }catch (NumberFormatException nfe){
             return false;
         }
         return true;
     }
-
 }
 
