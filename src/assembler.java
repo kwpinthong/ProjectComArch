@@ -3,6 +3,11 @@
  */
 
 import instruction.*;
+import instruction.I_Type.beq;
+import instruction.I_Type.lw;
+import instruction.I_Type.sw;
+import instruction.J_Type.jalr;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,14 +40,12 @@ public class assembler {
        this.nRows = nRows;
        this.nCols = nCols;
    }
-
    public void initLable(){
        for(int i = 0; i < nRows; i++) {
            //----Set all value----//
            label.add(data[i][0]);
        }   //---------------------//
    }
-
     public void working()throws IOException{
        initLable();
        for(int i = 0; i < nRows; i++){
@@ -53,7 +56,7 @@ public class assembler {
                this.field2 = data[i][4];
                this.comment = data[i][5];
            }catch (Exception e){
-                if(inst.equals("halt") || inst.equals("noop")){
+               if(inst.equals("halt") || inst.equals("noop")){
                    this.field0 = "";
                    this.field1 = "";
                    this.field2 = "";
@@ -62,7 +65,7 @@ public class assembler {
            }
           String temp;
            if(inst.equals(".fill")){
-               if(isNumber(field0)){
+               if(isNumeric(field0)){
                    System.out.println(field0);
                }else{
                    System.out.println(label.indexOf(field0));
@@ -72,8 +75,8 @@ public class assembler {
                switch(inst){
                    case "add":
                    case "nand":
-                       AddNand addNand = new AddNand(inst,field0,field1,field2);
-                       temp = addNand.doAdd_oR_Nand();
+                       R_Type RType = new R_Type(inst,field0,field1,field2);
+                       temp = RType.doAdd_oR_Nand();
                        System.out.println(temp);
                        break;
                    case "lw" :
@@ -106,8 +109,8 @@ public class assembler {
                        break;
                    case "halt" :
                    case "noop" :
-                       HaltNoop haltNoop = new HaltNoop();
-                       temp = haltNoop.dohalt_oR_Noop(inst);
+                       O_Type OType = new O_Type();
+                       temp = OType.dohalt_oR_Noop(inst);
                        System.out.println(temp);
                        break;
                    default:
@@ -119,28 +122,23 @@ public class assembler {
        }
        System.exit(0);
     }
-
-    private boolean isNumber(String field0){
+    public static boolean isNumeric(String str){
         try{
-            int temp = Integer.parseInt(field0);
-        }catch (NumberFormatException nfe){
+            double d = Double.parseDouble(str);
+        } catch(NumberFormatException nfe){
             return false;
         }
         return true;
     }
-
     private void checkLabel(){
         //Check Label at field2 and check if label is undefine
-        if(isNumber(field2)){
-            return;//Go to switch cases
-        }else{
+        if(!isNumeric(field2)){
             if(label.contains(field2)){
-                return;//Go to switch cases
+                return;
             }else{
-                System.out.println("Error: Undefine Label");
+                System.out.println("Error: Undefined Label");
                 System.exit(1);
             }
         }
     }
-
 }

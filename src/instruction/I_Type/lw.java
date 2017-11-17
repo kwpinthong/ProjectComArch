@@ -1,5 +1,7 @@
-package instruction;
+package instruction.I_Type;
 /* Create by kandation */
+import instruction.register;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -62,7 +64,6 @@ public class lw {
         return null;
     }
 
-
     public static boolean isNumeric(String str){
         try{
             double d = Double.parseDouble(str);
@@ -77,18 +78,6 @@ public class lw {
         int count;
         String tmp = Integer.toBinaryString(int1);
         count = tmp.length();
-        while (count < 16) {
-            tmp = "0" + tmp;
-            count++;
-        }
-        return tmp;
-    }
-
-    public static String toBinary(short int1){
-        short count ;
-        String tmp = Integer.toBinaryString(0xFFFF & int1);
-
-        count = (short)tmp.length();
         while (count < 16) {
             tmp = "0" + tmp;
             count++;

@@ -1,5 +1,6 @@
-package instruction;
+package instruction.I_Type;
 
+import instruction.register;
 import java.util.ArrayList;
 
 public class beq {
@@ -32,9 +33,7 @@ public class beq {
             }
             return offField;
         }else{
-            if(isNumber(offField)){
-
-            }else{
+            if(!isNumber(offField)){
                 System.out.println("Error: Undefine Label");
                 System.exit(1);
             }
@@ -52,7 +51,6 @@ public class beq {
         }
         return tmp;
     }
-
     public static String toBinary(short int1){
         short count ;
         String tmp = Integer.toBinaryString(0xFFFF & int1);
@@ -63,7 +61,6 @@ public class beq {
         }
         return tmp;
     }
-
     private boolean isNumber(String field0){
         try{
             int temp = Integer.parseInt(field0);

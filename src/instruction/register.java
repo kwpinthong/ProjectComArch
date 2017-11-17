@@ -4,13 +4,11 @@ public class register {
     String r;
     String tmp;
 
-    public register (String r)
-    {
+    public register (String r) {
         this.r = r;
     }
 
-    public String CheckReg()
-    {
+    public String CheckReg(){
         switch(r) {
             case "0":
                 tmp = "000";
@@ -39,7 +37,6 @@ public class register {
             default:
                 tmp = "Error on Register";
         }
-
         return tmp;
     }
 }

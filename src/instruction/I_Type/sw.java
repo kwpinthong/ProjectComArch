@@ -1,5 +1,6 @@
-package instruction;
+package instruction.I_Type;
 /* Create by kandation */
+import instruction.register;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class sw{
             }
             if(lableCouter >= this.label.size()){
                 // ถ้าไม่เจอ label แสดงว่า ลาเบลผิด หรือ ไม่มีจริง แสดง เออเรอ
-                throw new IOException("Error: Label is Undefinded");
+                throw new IOException("Error: Undefined Label");
             }
         }else{
             // when offsetField is Numberic
@@ -66,7 +67,6 @@ public class sw{
         return null;
     }
 
-
     public static boolean isNumeric(String str){
         try{
             double d = Double.parseDouble(str);
@@ -81,18 +81,6 @@ public class sw{
         int count;
         String tmp = Integer.toBinaryString(int1);
         count = tmp.length();
-        while (count < 16) {
-            tmp = "0" + tmp;
-            count++;
-        }
-        return tmp;
-    }
-
-    public static String toBinary(short int1){
-        short count ;
-        String tmp = Integer.toBinaryString(0xFFFF & int1);
-
-        count = (short)tmp.length();
         while (count < 16) {
             tmp = "0" + tmp;
             count++;

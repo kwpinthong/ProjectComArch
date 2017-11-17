@@ -1,5 +1,5 @@
-package instruction;
-
+package instruction.J_Type;
+import instruction.register;
 /**
  * Created by ASUS on 10/30/2017.
  */

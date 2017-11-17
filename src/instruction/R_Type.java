@@ -2,14 +2,14 @@ package instruction;
 /**
  * Created by ASUS on 11/17/2017.
  */
-public class AddNand {
+public class R_Type {
     static String op_add = "000" ;
     static String op_nand = "001";
     String inst;
     register rs;
     register rt;
     register rd;
-    public AddNand(String inst,String field0,String field1,String field2){
+    public R_Type(String inst, String field0, String field1, String field2){
         this.inst = inst;
         this.rs = new register(field0);
         this.rt = new register(field1);
