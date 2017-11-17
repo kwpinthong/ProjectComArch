@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class main {
-
-    public static File file = new File("example.txt");
+    //public static File file = new File("example.txt");
     //public static File file = new File("input.txt");
-    //public static File file = new File("mult.txt");
-    //public static File file = new File("comb.txt"); //beq is not done for
+    public static File file = new File("mult.txt");
+    //public static File file = new File("comb.txt");
     //public static File file = new File("comb2.txt");
     //public static File file = new File("sum.txt");
 
@@ -21,7 +20,7 @@ public class main {
         Scanner assemblyLine = new Scanner(file);
         List<String> line = new ArrayList<>();
         while (assemblyLine.hasNextLine()){line.add(assemblyLine.nextLine());}
-        String[] temp = line.toArray(new String[0]); //Add every lines form array-list to array
+        String[] temp = line.toArray(new String[0]); //Add every lines from arrayList to array
         //---------------------------------------------------//
         //----------Create 2D Array to keep data-------------//
         final int nCols = 6;
@@ -32,9 +31,7 @@ public class main {
             }
         }
         //----------------------------------------------------/
-        assembly assembly = new assembly(data,temp.length,nCols);
-        assembly.initLable();
-        assembly.working();
+        assembler assembler = new assembler(data,temp.length,nCols);
+        assembler.working();
     }
-
 }

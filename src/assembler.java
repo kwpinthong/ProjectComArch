@@ -3,12 +3,10 @@
  */
 
 import instruction.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class assembly{
-
+public class assembler {
     /*
     ใช้ทดลอง วนอ่านค่า label ทั้งหมดก่อน
     ///////////////////////////////////////////////////////
@@ -22,7 +20,6 @@ public class assembly{
     comment = assembly[5];
     */
     static ArrayList<String> label = new ArrayList<>();
-    //static ArrayList<String> keepLine = new ArrayList<>();
     String inst;
     String field0;
     String field1;
@@ -33,7 +30,7 @@ public class assembly{
     int nRows;
     int nCols;
 
-   public assembly(String[][] data, int nRows, int nCols){
+   public assembler(String[][] data, int nRows, int nCols){
        this.data = data;
        this.nRows = nRows;
        this.nCols = nCols;
@@ -47,6 +44,7 @@ public class assembly{
    }
 
     public void working()throws IOException{
+       initLable();
        for(int i = 0; i < nRows; i++){
            this.inst = data[i][1];
            try{
@@ -73,13 +71,9 @@ public class assembly{
                if(!field2.isEmpty())checkLabel();
                switch(inst){
                    case "add":
-                       add add = new add(field0,field1,field2);
-                       temp = add.doAdd();
-                       System.out.println(temp);
-                       break;
                    case "nand":
-                       nand nand = new nand(field0,field1,field0);
-                       temp = nand.doNand();
+                       AddNand addNand = new AddNand(inst,field0,field1,field2);
+                       temp = addNand.doAdd_oR_Nand();
                        System.out.println(temp);
                        break;
                    case "lw" :
@@ -111,17 +105,14 @@ public class assembly{
                        System.out.println(temp);
                        break;
                    case "halt" :
-                       halt halt = new halt();
-                       temp=halt.dohalt();
-                       System.out.println(temp);
-                       break;
                    case "noop" :
-                       noop noop = new noop();
-                       temp = noop.doNoop();
+                       HaltNoop haltNoop = new HaltNoop();
+                       temp = haltNoop.dohalt_oR_Noop(inst);
                        System.out.println(temp);
                        break;
                    default:
-                       System.out.println("Error: Wrong OPCODE at line "+(i+1));
+                       //If don't find any match opcode = wrong opcode
+                       System.out.println("Error: Wrong OPCODE at line");
                        System.exit(1);
                }
            }
