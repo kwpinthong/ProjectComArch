@@ -12,7 +12,6 @@ public class beq {
     String offField;
     ArrayList<String> label;
 
-
     public beq (String field0, String field1, String field2, ArrayList<String> label, int PC)
     {
         this.rs = new register(field0);

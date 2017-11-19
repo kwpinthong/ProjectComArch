@@ -5,16 +5,20 @@ import instruction.register;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class lw {
-    static String op = "010";
+public class sw_lw {
+    static String op_lw = "010";
+    static String op_sw = "011";
+    String op;
     register rs;
     register rt;
     short tmp;
+    String inst;
     String offField;
     ArrayList<String> label;
     String [][] data;
 
-    public lw(String field0, String field1, String field2, ArrayList<String> label, String[][] data){
+    public sw_lw(String inst, String field0, String field1, String field2, ArrayList<String> label, String[][] data){
+        this.inst = inst;
         this.rs = new register(field0);
         this.rt = new register(field1);
         offField = field2;
@@ -22,8 +26,10 @@ public class lw {
         this.data = data;
     }
 
-    public String doLw() throws IOException{
-        // ตรวจสอบว่า offset feild เป็นตัวเลข หรือ lable
+    public String doLw_oR_Sw() throws IOException{
+        if(inst.equals("lw")) op = op_lw;
+        else if(inst.equals("sw")) op = op_sw;
+        // ตรวจสอบว่า offset field เป็นตัวเลข หรือ lable
         if(offField.matches("(.*)[a-z](.*)")){
             // กรณีที่ เป็น label
             // วนหา address ของ offset field
@@ -59,7 +65,6 @@ public class lw {
             }else{
                 throw new IOException("Error: Offset Size is Wrong");
             }
-
         }
         return null;
     }

@@ -4,16 +4,14 @@
 
 import instruction.*;
 import instruction.I_Type.beq;
-import instruction.I_Type.lw;
-import instruction.I_Type.sw;
-import instruction.J_Type.jalr;
+import instruction.I_Type.sw_lw;
+import instruction.J_Type;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class assembler {
     /*
-    ใช้ทดลอง วนอ่านค่า label ทั้งหมดก่อน
     ///////////////////////////////////////////////////////
     //List value from assembly[][] to String variables
     ///////////////////////////////////////////////////////
@@ -80,19 +78,10 @@ public class assembler {
                        System.out.println(temp);
                        break;
                    case "lw" :
-                       try{
-                           lw lw = new lw(field0, field1, field2, label, data);
-                           System.out.println(lw.doLw());
-                       }catch (IOException e){
-                           System.out.println(e.getMessage());
-                           System.exit(1);
-                       }
-                       break;
                    case "sw" :
-                       //Do anything same lw in assembler
-                       try {
-                           sw sw = new sw(field0, field1, field2, label, data);
-                           System.out.println(sw.doSw());
+                       try{
+                           sw_lw sw_lw = new sw_lw(inst,field0, field1, field2, label, data);
+                           System.out.println(sw_lw.doLw_oR_Sw());
                        }catch (IOException e){
                            System.out.println(e.getMessage());
                            System.exit(1);
@@ -103,8 +92,8 @@ public class assembler {
                        System.out.println(beq.doBeq());
                        break;
                    case "jalr" :
-                       jalr jalr = new jalr(field0,field1);
-                       temp = jalr.toJalr();
+                       J_Type J_Type = new J_Type(field0,field1);
+                       temp = J_Type.toJalr();
                        System.out.println(temp);
                        break;
                    case "halt" :
@@ -115,7 +104,7 @@ public class assembler {
                        break;
                    default:
                        //If don't find any match opcode = wrong opcode
-                       System.out.println("Error: Wrong OPCODE at line");
+                       System.out.println("Error: Wrong OPCODE");
                        System.exit(1);
                }
            }
@@ -133,12 +122,11 @@ public class assembler {
     private void checkLabel(){
         //Check Label at field2 and check if label is undefine
         if(!isNumeric(field2)){
-            if(label.contains(field2)){
-                return;
-            }else{
+            if(!label.contains(field2)){
                 System.out.println("Error: Undefined Label");
                 System.exit(1);
             }
         }
+        return;
     }
 }
