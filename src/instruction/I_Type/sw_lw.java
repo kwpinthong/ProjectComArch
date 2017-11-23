@@ -36,7 +36,7 @@ public class sw_lw {
             int lableCouter = 0;
             for ( int i = 0;i<this.label.size(); i ++){
                 // ถ้ามีตรงกันในลิส์
-                if(offField.equals(label.get(i))) {
+                if(offField.equals(label.get(i))){
                     tmp = (short)i;
                     //ตรวจว่ามันเป็นตัวเลขหรือไม่
                     if(isNumeric(data[i][2])) {
@@ -83,6 +83,9 @@ public class sw_lw {
         int count;
         String tmp = Integer.toBinaryString(int1);
         count = tmp.length();
+        if(count > 16){
+            tmp = tmp.substring(16,32);
+        }
         while (count < 16) {
             tmp = "0" + tmp;
             count++;

@@ -8,12 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class main {
-    public static File file = new File("example2.txt");
-    //public static File file = new File("comb.txt");
-    //public static File file = new File("comb2.txt");
-    //public static File file = new File("mult.txt");
-    //public static File file = new File("sum.txt");
-    //public static File file = new File("poh.txt");
+    public static File file = new File("example.txt");
+    //public static File file = new File("example2.txt");
+    //public static File file = new File("mycombtest.txt");
+    //public static File file = new File("combine.txt");
     public static void main(String[] args) throws IOException {
         //----Read file and input each line in array-list----//
         Scanner assemblyLine = new Scanner(file);
