@@ -74,7 +74,7 @@ public class assembler {
                    System.out.println(label.indexOf(field0));
                }
            }else{
-               //if(!field2.isEmpty())checkLabel();
+               if(!field2.isEmpty())checkLabel();
                switch(inst){
                    case "add":
                    case "nand":
