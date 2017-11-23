@@ -59,6 +59,11 @@ public class assembler {
                    this.field1 = "";
                    this.field2 = "";
                    this.comment = "";
+               }else if(inst.equals("jalr")){
+                   this.field0 = data[i][2];
+                   this.field1 = data[i][3];
+                   this.field2 = "";
+                   this.comment = "";
                }
            }
           String temp;
